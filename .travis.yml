@@ -5,9 +5,13 @@ python:
   - 3.6
   - 3.7
   - 3.8
+  - 3.9
+  - 3.10
 env:
   - DJANGO_VERSION="Django<3.1"
   - DJANGO_VERSION="Django<3.2"
+  - DJANGO_VERSION="Django<3.3"
+  - DJANGO_VERSION="Django<4.1"
 install:
   - pip install -q "${DJANGO_VERSION}"
   - python setup.py install -q
