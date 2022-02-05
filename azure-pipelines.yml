@@ -1,0 +1,33 @@
+trigger:
+  batch: true
+  paths:
+    exclude:
+    - LICENSE
+    - Makefile
+    - MANIFEST.in
+    - README.rst
+
+jobs:
+- job: Test
+  pool:
+    vmImage: ubuntu-latest
+  strategy:
+    matrix:
+      Python36dj32:
+        python.version: '3.6'
+        django.version: '3.2'
+      Python38dj32:
+        python.version: '3.8'
+        django.version: '3.2'
+
+  steps:
+  - task: UsePythonVersion@0
+    displayName: Use Python $(python.version)
+    inputs:
+      versionSpec: $(python.version)
+  - script: pip install '$(django.version)'
+    displayName: Install requirements
+  - script: python setup.py install
+    displayName: setup.py install
+  - script: python quicktest.py
+    displayName: Run tests
