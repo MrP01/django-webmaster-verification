@@ -1,11 +1,10 @@
 from django.urls import re_path
 
-from webmaster_verification.views import AlexaVerificationView
-from webmaster_verification.views import BingVerificationView
-from webmaster_verification.views import GoogleVerificationView
-from webmaster_verification.views import MajesticVerificationView
-from webmaster_verification.views import YandexVerificationView
-
+from webmaster_verification.views import (AlexaVerificationView,
+                                          BingVerificationView,
+                                          GoogleVerificationView,
+                                          MajesticVerificationView,
+                                          YandexVerificationView)
 
 urlpatterns = [
     re_path(
